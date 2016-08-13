@@ -3,12 +3,14 @@
 
 Name:           nvidia-driver-NVML-devel
 Version:        352.79
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA Management Library (NVML) development files
 Epoch:          1
 License:        NVIDIA License
 URL:            https://developer.nvidia.com/nvidia-management-library-nvml
 Source0:        http://developer.download.nvidia.com/compute/cuda/7.5/Prod/gdk/gdk_linux_amd64_352_79_release.run
+
+BuildRequires:  perl(Getopt::Long)
 
 # The unversioned shared object is in the main driver development package
 Requires:       nvidia-driver-NVML%{?_isa}
@@ -104,6 +106,9 @@ ln -sf %{_libdir}/nvidia-validation-suite/nvvs %{buildroot}%{_bindir}/nvvs
 %endif
 
 %changelog
+* Sat Aug 13 2016 Simone Caronni <negativo17@gmail.com> - 1:352.79-2
+- Perl has been removed from build roots.
+
 * Sun Feb 14 2016 Simone Caronni <negativo17@gmail.com> - 1:352.79-1
 - Update to 352.79.
 
